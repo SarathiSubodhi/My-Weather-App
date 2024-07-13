@@ -57,17 +57,22 @@ const transporter = nodemailer.createTransport({
     const mailOptions = {
       from: config.emailUser,
       to: email,
-      subject: 'Weather Report',
-      text: `Here is your weather report: ${JSON.stringify(weatherData, null, 2)}`}
+      subject: "Weather Report",
+      text: `Here is your weather report: ${JSON.stringify(
+        weatherData,
+        null,
+        2
+      )}`,
     };
-
+  
     transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log('Error sending email:', error);
-        } else {
-          console.log('Email sent:', info.response);
-        }
-      });
+      if (error) {
+        console.log("Error sending email:", error);
+      } else {
+        console.log("Email sent:", info.response);
+  }
+  });
+  };
 
       cron.schedule('0 */3 * * *', async () => {
         const users = await User.find();

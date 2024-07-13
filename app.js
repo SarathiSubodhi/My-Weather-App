@@ -14,8 +14,7 @@ app.use('/users', userRoutes);
 
 // Database Connection
 mongoose.connect(config.dbUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+ 
 }).then(() => {
   console.log('Connected to the database');
 }).catch((err) => {
